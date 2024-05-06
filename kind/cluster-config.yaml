@@ -15,7 +15,7 @@ containerdConfigPatches:
         "https://gcr.mirrors.ustc.edu.cn"
       ]
   - |-
-    [plugins."io.containerd.grpc.v1.cri".registry.mirrors."public.ecr.aws"] 
+    [plugins."io.containerd.grpc.v1.cri".registry.mirrors."public.ecr.aws"]
       endpoint = [
         "https://public-ecr-mirror.mirrors.ustc.edu.cn"
       ]
@@ -48,6 +48,11 @@ nodes:
       - containerPort: 31017
         hostPort: 15017
         protocol: TCP
+      # # TCP port for application use such as:
+      # # https://istio.io/latest/docs/tasks/traffic-management/tcp-traffic-shifting/
+      # - containerPort: 31400
+      #   hostPort: 31400
+      #   protocol: TCP
   - role: worker
     image: kindest/node:v1.27.11
   # - role: worker
